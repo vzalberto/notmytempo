@@ -16,12 +16,12 @@ sp = spotipy.Spotify(auth)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        if request.form['query'] != None:
+        if request.form['query']:
             results = sp.search(q=request.form['query'])
-            if results['tracks']:
+            if results['tracks']['items']:
                 return render_template('trackInfo.html', results=results['tracks']['items'])
             else:
-                return "NOPE"
+                return render_template('index.html', error=1, query=request.form['query'])
     return render_template('index.html')
 
 @app.route('/artist/<artist>')

@@ -11,6 +11,9 @@
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </div>
         </div>
+        {% if error %}
+        <span class="help-block">No se encontraron resultados para '{{ query }}'</span>
+        {% endif %}
       </div>
     </div>
   </div>
