@@ -3,7 +3,12 @@
 <body>
   <h1>THIS IS NOT MY TEMPO!</h1>
   <p>
-    {{ track[0].time_signature }}
+    Time signature: {{ track[0].time_signature }}
+  </p>
+
+  <br>
+  <p>
+    Danceability: {{ track[0].danceability }}
   </p>
 </body>
 {% endblock %}
