@@ -35,4 +35,4 @@ def getRhythm(id):
     return render_template('track.html', track=track)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=33507)
