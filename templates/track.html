@@ -1,21 +1,17 @@
 {% extends "layout.html" %}
 {%block body %}
-<body>
-  <h1>THIS IS NOT MY TEMPO!</h1>
-  <p>
-    Time signature: {{ track[0].time_signature }}
-  </p>
+<h1>THIS IS NOT MY TEMPO!</h1>
 
-  <br>
-  <p>
-    Danceability: {{ track[0].danceability }}
-  </p>
+<dl class="dl-horizontal">
+  <dt>Time signature</dt>
+  <dd>{{ track[0].time_signature }}</dd>
 
-  <br>
-  <p>
-    Tempo: {{ track[0].tempo }}
-  </p>
+  <dt>Danceability</dt>
+  <dd>{{ track[0].danceability }}</dd>
+
+  <dt>Key</dt>
+  <dd>{{ keys[track[0].key] }}</dd>
+</dl>
 
   <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-</body>
 {% endblock %}

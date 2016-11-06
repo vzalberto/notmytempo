@@ -31,8 +31,9 @@ def searchArtist(artist):
 
 @app.route('/track/<id>')
 def getRhythm(id):
+    keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'B#']
     track = sp.audio_features([id])
-    return render_template('track.html', track=track)
+    return render_template('track.html', track=track, keys=keys)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
