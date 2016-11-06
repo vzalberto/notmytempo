@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul>
+{% for track in results %}
+<li>
+  <a href="/track/{{ track.id }}">
+    {{ track.name }}
+  </a>
+  <br>
+  <a href="/artist/{{ track.artists[0].name }}">
+    {{ track.artists[0].name }}
+  </a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

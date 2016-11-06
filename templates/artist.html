@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+  <ol>
+    {% for result in results %}
+    <li>
+      {{ result.name }}
+      <br>
+      {% if result.images is defined  %}
+      {{ result.images[0] }}
+      <br>
+      <img src="{{ result.images[0] }}" alt="{{ result.name }}" />
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</body>
+{% endblock %}
