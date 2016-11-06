@@ -1,30 +1,21 @@
 {% extends "layout.html" %}
 {%block body %}
-<style>
-.parent {
-  position: relative;
-}
-.child {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-}
-</style>
-<div class="parent">
-  <form class="form-horizontal child" method="post">
-    <div class="form-group form-group-lg">
-          <div class="input-group">
-            <input class="form-control input-l" type="search" name="query" placeholder="Search song..." />
+<div class="row">
+<div class="col-sm-4 col-sm-offset-4">
+<form class="form-horizontal" method="post">
+  <div class="form-group form-group-lg">
+        <div class="input-group">
+          <input class="form-control input-l" type="search" name="query" placeholder="Search song..." />
 
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </div>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </div>
-          {% if error %}
-          <span class="help-block">No se encontraron resultados para '{{ query }}'</span>
-          {% endif %}
-    </div>
-  </form>
+        </div>
+        {% if error %}
+        <span class="help-block">No se encontraron resultados para '{{ query }}'</span>
+        {% endif %}
+      </div>
+</form>
+</div>
 </div>
 {% endblock %}
