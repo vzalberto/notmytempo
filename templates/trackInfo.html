@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
-<ul>
 {% for track in results %}
-<li>
-  <a href="/track/{{ track.id }}">
-    {{ track.name }}
+<div class="list-group">
+  <a href="/track/{{ track.id }}" class="list-group-item">
+    <h4 class="list-group-item-heading">
+      {{ track.name }}
+    </h4>
+    {% for artist in track.artists %}
+    <span>{{ artist.name }}</span>{% if not loop.last %},&nbsp;&nbsp;{% endif %}
+    {% endfor %}
   </a>
-  <br>
-  <a href="/artist/{{ track.artists[0].name }}">
-    {{ track.artists[0].name }}
-  </a>
-</li>
+</div>
 {% endfor %}
-</ul>
+
 {% endblock %}
