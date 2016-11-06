@@ -6,14 +6,14 @@
   <dt>Time signature</dt>
   <dd>{{ track[0].time_signature }}</dd>
 
+  <dt>Key</dt>
+  <dd>{{ keys[track[0].key] }}</dd>
+
   <dt>Danceability</dt>
   <dd>{{ track[0].danceability }}</dd>
 
   <dt>Energy</dt>
   <dd>{{ track[0].energy }}</dd>
-
-  <dt>Key</dt>
-  <dd>{{ keys[track[0].key] }}</dd>
 </dl>
 
   <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
