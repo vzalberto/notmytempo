@@ -15,6 +15,7 @@ sp = spotipy.Spotify(auth)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
+    print request.environ['REMOTE_ADDR']
     if request.method == 'POST':
         if request.form['query']:
             results = sp.search(q=request.form['query'])
