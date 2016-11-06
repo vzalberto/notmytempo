@@ -1,23 +1,35 @@
 {% extends "layout.html" %}
 {%block body %}
-<h1>THIS IS NOT MY TEMPO!</h1>
+<div class="row">
+  <div class="col-md-5 col-md-offset-4 text-center">
+    <h1>THIS IS NOT MY TEMPO!</h1>
+  </div>
 
-<dl class="dl-horizontal">
-  <dt>Time signature</dt>
-  <dd>{{ track[0].time_signature }}</dd>
+  <div class="col-md-5 col-md-offset-4">
 
-  <dt>Key</dt>
-  <dd>{{ keys[track[0].key] }}</dd>
+    <dl class="dl-horizontal">
+      <dt>Time signature</dt>
+      <dd>{{ track[0].time_signature }}</dd>
 
-  <dt>Tempo</dt>
-  <dd>{{ track[0].tempo }} BPM</dd>
+      <dt>Key</dt>
+      <dd>{{ keys[track[0].key] }}</dd>
 
-  <dt>Danceability</dt>
-  <dd>{{ track[0].danceability }}</dd>
+      <dt>Tempo</dt>
+      <dd>{{ track[0].tempo }} BPM</dd>
 
-  <dt>Energy</dt>
-  <dd>{{ track[0].energy }}</dd>
-</dl>
+      <dt>Danceability</dt>
+      <dd>{{ track[0].danceability }}</dd>
 
-  <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <dt>Energy</dt>
+      <dd>{{ track[0].energy }}</dd>
+    </dl>
+
+  </div>
+
+  <div class="col-md-5 col-md-offset-4 text-center">
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+  </div>
+</div>
 {% endblock %}
