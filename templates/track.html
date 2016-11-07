@@ -14,14 +14,29 @@
       <dt>Key</dt>
       <dd>{{ keys[track[0].key] }}</dd>
 
+      <dt>Mode</dt>
+      <dd>{{ modes[track[0].mode] }}</dd>
+
       <dt>Tempo</dt>
       <dd>{{ track[0].tempo }} BPM</dd>
-
+      <br>
       <dt>Danceability</dt>
-      <dd>{{ track[0].danceability }}</dd>
+      <dd>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ track[0].danceability }}" aria-valuemin="0" aria-valuemax="1" style="width: {{ track[0].danceability * 100}}%">
+            {{ track[0].danceability * 100}}%
+          </div>
+        </div>
+      </dd>
 
       <dt>Energy</dt>
-      <dd>{{ track[0].energy }}</dd>
+      <dd>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ track[0].energy }}" aria-valuemin="0" aria-valuemax="1" style="width: {{ track[0].energy * 100}}%">
+            {{ track[0].energy * 100}}%
+          </div>
+        </div>
+      </dd>
     </dl>
 
   </div>
