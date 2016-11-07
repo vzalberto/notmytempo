@@ -1,8 +1,17 @@
 {% extends "layout.html" %}
 {%block body %}
 <div class="row">
+  <div class="col-sm-6 text-center">
+  </div>
+
+
+
+
+
   <div class="col-md-5 col-md-offset-4 text-center">
-    <h1>NOT QUITE MY TEMPO...</h1>
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
   </div>
 
   <div class="col-md-5 col-md-offset-4">
@@ -41,14 +50,9 @@
 
   </div>
 
-  <div class="col-md-5 col-md-offset-4 text-center">
 
-    <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ track[0].id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-
-  </div>
-
-  <div class="col-sm-12 text-center" >
-    <a href="/" class="btn btn-primary btn-lg">ENCORE!</a>
-  </div>
+    <div class="col-sm-6 text-center" >
+      <a href="/" class="btn btn-primary btn-lg">ENCORE!</a>
+    </div>
 </div>
 {% endblock %}
