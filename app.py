@@ -7,6 +7,7 @@ import os
 #import config
 
 app = Flask(__name__)
+app.config['MONGO_URI'] = os.environ['MONGO_URI']
 mongo = PyMongo(app)
 
 token   =   OA2.SpotifyClientCredentials(os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'])
@@ -36,6 +37,11 @@ def getRhythm(id):
     modes = ['minor', 'Major']
     track = sp.audio_features([id])
     return render_template('track.html', track=track, keys=keys, modes=modes)
+
+@app.route('/stats')
+def getStats():
+    searches = mongo.db.searches.find()
+    return render_template('stats.html',searches=searches)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
