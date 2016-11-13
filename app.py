@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask.ext.pymongo import PyMongo
 import spotipy
 from spotipy import oauth2 as OA2
 import os
@@ -6,7 +7,8 @@ import os
 #import config
 
 app = Flask(__name__)
-
+mongo = PyMongo(app)
+print mongo.db
 
 token   =   OA2.SpotifyClientCredentials(os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'])
 auth    =   token.get_access_token()
