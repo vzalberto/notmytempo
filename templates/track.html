@@ -29,7 +29,9 @@
       <dt>Tempo</dt>
       <dd>{{ track[0].tempo }} BPM</dd>
       <br>
-      <dt>Danceability</dt>
+      <dt>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Danceability" data-content="Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable."><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+      &nbsp;&nbsp;Danceability</dt>
       <dd>
         <div class="progress">
           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ track[0].danceability }}" aria-valuemin="0" aria-valuemax="1" style="width: {{ track[0].danceability * 100}}%">
@@ -38,7 +40,9 @@
         </div>
       </dd>
 
-      <dt>Energy</dt>
+      <dt>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Energy" data-content="Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy."><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+      &nbsp;&nbsp;Energy</dt>
       <dd>
         <div class="progress">
           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ track[0].energy }}" aria-valuemin="0" aria-valuemax="1" style="width: {{ track[0].energy * 100}}%">
@@ -55,4 +59,10 @@
       <a href="/" class="btn btn-primary btn-lg">ENCORE!</a>
     </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('dt>a').popover();
+  });
+</script>
 {% endblock %}
