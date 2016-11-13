@@ -8,7 +8,6 @@ import os
 
 app = Flask(__name__)
 mongo = PyMongo(app)
-print mongo.db
 
 token   =   OA2.SpotifyClientCredentials(os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'])
 auth    =   token.get_access_token()
