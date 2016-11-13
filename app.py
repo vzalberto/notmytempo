@@ -36,6 +36,7 @@ def getRhythm(id):
     keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'B#']
     modes = ['minor', 'Major']
     track = sp.audio_features([id])
+    mongo.db.searches.insert_one({'track_id':id})
     return render_template('track.html', track=track, keys=keys, modes=modes)
 
 @app.route('/stats')

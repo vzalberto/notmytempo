@@ -1,5 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
 <h1>Stats are fun</h1>
-{{ searches[0].track_id }}
+{{ searches[1].track_id }}
+
+
+  <ol>
+    {% for result in searches %}
+    <li>
+      {{ result.track_id }}
+    </li>
+    {% endfor %}
+  </ol>
+
+
 {% endblock %}
