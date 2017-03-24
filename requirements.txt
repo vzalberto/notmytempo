@@ -3,7 +3,7 @@ Jinja2==2.8
 oauthlib==1.0.3
 requests==2.7.0
 requests-oauthlib==0.5.0
-spotipy==2.3.8
+spotipy==2.4.4
 virtualenv==15.0.3
 PyMongo==3.3.1
 Flask-PyMongo==0.4.1

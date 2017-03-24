@@ -39,6 +39,14 @@ def getRhythm(id):
     mongo.db.searches.insert_one({'track_id':id, 'ip':request.remote_addr})
     return render_template('track.html', track=track, keys=keys, modes=modes)
 
+@app.route('/analysis/<id>')
+def getAnalysis(id):
+    keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'B#']
+    modes = ['minor', 'Major']
+    analysis = sp.audio_analysis(id)
+    #mongo.db.searches.insert_one({'track_id':id, 'ip':request.remote_addr})
+    return render_template('analysis.html', analysis=analysis, keys=keys, modes=modes)
+
 @app.route('/stats')
 def getStats():
     searches = mongo.db.searches.find()
