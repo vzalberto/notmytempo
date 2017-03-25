@@ -45,7 +45,7 @@ def getAnalysis(id):
     modes = ['minor', 'Major']
     analysis = sp.audio_analysis(id)
     #mongo.db.searches.insert_one({'track_id':id, 'ip':request.remote_addr})
-    return render_template('analysis.html', analysis=analysis, keys=keys, modes=modes)
+    return render_template('analysis.html', analysis=analysis, keys=keys, modes=modes, id=id)
 
 @app.route('/stats')
 def getStats():

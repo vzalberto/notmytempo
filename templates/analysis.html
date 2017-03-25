@@ -3,26 +3,33 @@
 
 <script src="http://d3js.org/d3.v4.min.js"></script>
 <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+  <!-- Player -->
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center">
 
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ id }}&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+  </div>
 <script type="text/javascript">
 	var sections = {{ analysis['sections']|tojson }};
 	var keys = {{ keys|tojson }};
 	var modes = {{ modes|tojson }};
 </script>
 
+<div class="col-md-offset-3">	
 <div id="chartContainer">
-  <script type="text/javascript">
-  data = sections;
-    var svg = dimple.newSvg("#chartContainer", 800, 600);
-      var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(65, 50, "80%", 400);
+	  <script type="text/javascript">
+	  data = sections;
+	    var svg = dimple.newSvg("#chartContainer", 800, 600);
+	      var myChart = new dimple.chart(svg, data);
+	      myChart.setBounds(65, 50, "80%", 400);
 
-      var x = myChart.addCategoryAxis("x", "start");
+	      var x = myChart.addCategoryAxis("x", "start");
 
-      myChart.addMeasureAxis("y", "tempo");
-      myChart.addSeries(null, dimple.plot.area);
-      myChart.draw();
-  </script>
+	      myChart.addMeasureAxis("y", "tempo");
+	      myChart.addSeries(null, dimple.plot.area);
+	      myChart.draw();
+	  </script>
+	</div>
 </div>
 
 {% endblock %}
