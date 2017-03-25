@@ -1,9 +1,28 @@
 {% extends "layout.html" %}
 {% block body %}
 
-{% for segment in analysis %}
-{{ segment }}
-<br>
-{% endfor %}
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+
+<script type="text/javascript">
+	var sections = {{ analysis['sections']|tojson }};
+	var keys = {{ keys|tojson }};
+	var modes = {{ modes|tojson }};
+</script>
+
+<div id="chartContainer">
+  <script type="text/javascript">
+  data = sections;
+    var svg = dimple.newSvg("#chartContainer", 800, 600);
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(65, 50, "80%", 400);
+
+      var x = myChart.addCategoryAxis("x", "start");
+
+      myChart.addMeasureAxis("y", "tempo");
+      myChart.addSeries(null, dimple.plot.area);
+      myChart.draw();
+  </script>
+</div>
 
 {% endblock %}

@@ -25,12 +25,14 @@
       <dt>Mode</dt>
       <dd>{{ modes[track[0].mode] }}</dd>
 
-      <dt>Tempo</dt>
-      <dd>{{ track[0].tempo }} BPM</dd>
+      <dt>
+    <a href="/analysis/{{ track[0].id }}">
+  <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+Tempo</a></dt>
+      <dd>{{ track[0].tempo }} BPM (average)</dd>
 
     </dl>
 
-    <a href="/analysis/{{ track[0].id }}">More</a>
 
     <dl class="dl-horizontal">
 

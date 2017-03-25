@@ -1,10 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, request
 from flask.ext.pymongo import PyMongo
 import spotipy
 from spotipy import oauth2 as OA2
 import os
-
-#import config
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = os.environ['MONGO_URI']
