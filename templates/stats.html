@@ -7,11 +7,12 @@
   <ol>
     {% for result in searches %}
     <li>
+    {% if.result.track_name is defined %}
       {{ result.track_id }}
       {{ result.track_name }}
       {{ result.artist }}
       {{ result.date }}
-      {{ result.ip }}
+    {% endif %}
     </li>
     {% endfor %}
   </ol>
