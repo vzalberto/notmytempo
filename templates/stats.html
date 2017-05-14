@@ -8,6 +8,10 @@
     {% for result in searches %}
     <li>
       {{ result.track_id }}
+      {{ result.track_name }}
+      {{ result.artist }}
+      {{ result.date }}
+      {{ result.ip }}
     </li>
     {% endfor %}
   </ol>

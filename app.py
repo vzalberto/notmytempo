@@ -5,8 +5,10 @@ from flask.ext.pymongo import PyMongo
 import spotipy
 from spotipy import oauth2 as OA2
 import os
+import datetime
 
 app = Flask(__name__)
+#app.run(debug=True)
 app.config['MONGO_URI'] = os.environ['MONGO_URI']
 mongo = PyMongo(app)
 
@@ -35,16 +37,17 @@ def searchArtist(artist):
 def getRhythm(id):
     keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'B#']
     modes = ['minor', 'Major']
-    track = sp.audio_features([id])
-    mongo.db.searches.insert_one({'track_id':id, 'ip':request.remote_addr})
-    return render_template('track.html', track=track, keys=keys, modes=modes)
+    track_features = sp.audio_features([id])
+    track = sp.track(id)
+
+    mongo.db.searches.insert_one({'track_id':id, 'track_name':track['name'], 'artist':track['artists'][0]['name'], 'date': datetime.datetime.now(), 'ip':request.remote_addr})
+    return render_template('track.html', track=track_features, keys=keys, modes=modes)
 
 @app.route('/analysis/<id>')
 def getAnalysis(id):
     keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'B#']
     modes = ['minor', 'Major']
     analysis = sp.audio_analysis(id)
-    #mongo.db.searches.insert_one({'track_id':id, 'ip':request.remote_addr})
     return render_template('analysis.html', analysis=analysis, keys=keys, modes=modes, id=id)
 
 @app.route('/stats')
