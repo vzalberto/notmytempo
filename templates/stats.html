@@ -3,17 +3,18 @@
 <h1>Stats are fun</h1>
 {{ searches[1].track_id }}
 
-
   <ol>
     {% for result in searches %}
-    <li>
+
     {% if result.track_name is defined %}
-      {{ result.track_id }}
-      {{ result.track_name }}
-      {{ result.artist }}
-      {{ result.date }}
-    {% endif %}
+    <li>
+      <a href="notmytempo.herokuapp.com/track/{{ result.track_id }}">{{ result.track_id }}</a><br>
+      {{ result.track_name }}<br>
+      {{ result.artist }}<br>
+      {{ result.date }}<br>
     </li>
+    {% endif %}
+
     {% endfor %}
   </ol>
 
