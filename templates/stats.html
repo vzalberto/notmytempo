@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
 <h1>Stats are fun</h1>
-{{ searches[1].track_id }}
 
   <ol>
     {% for result in searches %}
 
-    {% if result.track_name is defined %}
+    {% if result.date is defined %}
     <li>
       <a href="notmytempo.herokuapp.com/track/{{ result.track_id }}">{{ result.track_id }}</a><br>
       {{ result.track_name }}<br>
