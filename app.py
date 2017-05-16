@@ -52,8 +52,9 @@ def getAnalysis(id):
 
 @app.route('/stats')
 def getStats():
-    searches = mongo.db.searches.find()
-    return render_template('stats.html',searches=searches)
+    searches = mongo.db.searches.find().sort("date",-1)
+    count = searches.count()
+    return render_template('stats.html',searches=searches,count=count)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
