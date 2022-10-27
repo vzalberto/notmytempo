@@ -19,7 +19,7 @@ auth    =   token.get_access_token()
 
 sp = spotipy.Spotify(auth)
 """
-spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
