@@ -40,7 +40,7 @@ def getRhythm(id):
     track_features = sp.audio_features([id])
     track = sp.track(id)
 
-    mongo.db.searches.insert_one({'track_id':id, 'track_name':track['name'], 'artist':track['artists'][0]['name'], 'date': datetime.datetime.now(), 'ip':request.remote_addr})
+    ## mongo.db.searches.insert_one({'track_id':id, 'track_name':track['name'], 'artist':track['artists'][0]['name'], 'date': datetime.datetime.now(), 'ip':request.remote_addr})
     return render_template('track.html', track=track_features, keys=keys, modes=modes)
 
 @app.route('/analysis/<id>')
