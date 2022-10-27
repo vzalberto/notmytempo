@@ -52,9 +52,9 @@ def getAnalysis(id):
 
 @app.route('/stats')
 def getStats():
-"""     searches = mongo.db.searches.find().sort("date",-1)
-    count = searches.count()
-    return render_template('stats.html',searches=searches,count=count) """
+    #searches = mongo.db.searches.find().sort("date",-1)
+    #count = searches.count()
+    #return render_template('stats.html',searches=searches,count=count) """
     return render_template('stats.html',searches=[],count=0)
 
 if __name__ == '__main__':
