@@ -1,4 +1,5 @@
 Flask==0.10.1
+markupsafe==2.0.1
 Jinja2==2.8
 oauthlib==1.0.3
 requests==2.7.0
