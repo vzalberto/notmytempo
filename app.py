@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 # from flask.ext.pymongo import PyMongo
 import spotipy
 from spotipy import oauth2 as OA2
+from spotipy.oauth2 import SpotifyClientCredentials
 import os
 import datetime
 
@@ -12,10 +13,13 @@ app = Flask(__name__)
 app.config['MONGO_URI'] = os.environ['MONGO_URI']
 # mongo = PyMongo(app)
 
+"""
 token   =   OA2.SpotifyClientCredentials(os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'])
 auth    =   token.get_access_token()
 
 sp = spotipy.Spotify(auth)
+"""
+spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
