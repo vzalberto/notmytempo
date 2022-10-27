@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request
-from flask.ext.pymongo import PyMongo
+# from flask.ext.pymongo import PyMongo
 import spotipy
 from spotipy import oauth2 as OA2
 import os
@@ -10,7 +10,7 @@ import datetime
 app = Flask(__name__)
 #app.run(debug=True)
 app.config['MONGO_URI'] = os.environ['MONGO_URI']
-mongo = PyMongo(app)
+# mongo = PyMongo(app)
 
 token   =   OA2.SpotifyClientCredentials(os.environ['SPOTIPY_CLIENT_ID'], os.environ['SPOTIPY_CLIENT_SECRET'])
 auth    =   token.get_access_token()
@@ -52,9 +52,10 @@ def getAnalysis(id):
 
 @app.route('/stats')
 def getStats():
-    searches = mongo.db.searches.find().sort("date",-1)
+"""     searches = mongo.db.searches.find().sort("date",-1)
     count = searches.count()
-    return render_template('stats.html',searches=searches,count=count)
+    return render_template('stats.html',searches=searches,count=count) """
+    return render_template('stats.html',searches=[],count=0)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
