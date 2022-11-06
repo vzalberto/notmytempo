@@ -1,6 +1,6 @@
 # notmytempo
 
-https://musicmetadataisfun.herokuapp.com
+https://notmytempo-heroku-22.herokuapp.com
 
 An explorer for the audio features info embedded on Spotify tracks.
 
