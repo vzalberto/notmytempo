@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+{{ user }}
+<div class="list-group">
+{% for playlist in playlists["items"] %}
+  <a href="/playlist/{{ playlist.id }}" class="list-group-item">
+    <h4 class="list-group-item-heading">
+      {{ playlist.name }}
+    </h4>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

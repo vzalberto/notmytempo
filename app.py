@@ -10,7 +10,7 @@ import datetime
 
 app = Flask(__name__)
 #app.run(debug=True)
-app.config['MONGO_URI'] = os.environ['MONGO_URI']
+# app.config['MONGO_URI'] = os.environ['MONGO_URI']
 # mongo = PyMongo(app)
 
 """
@@ -60,6 +60,22 @@ def getStats():
     #count = searches.count()
     #return render_template('stats.html',searches=searches,count=count) """
     return render_template('stats.html',searches=[],count=0)
+
+@app.route('/test')
+def test():
+    new_releases = sp.new_releases(limit=50)
+    return render_template('test.html', new_releases=new_releases)
+
+@app.route('/playlist/<id>')
+def playlist(id):
+    items = sp.playlist_items(id)
+    return render_template('playlist_items.html', items=items)
+
+@app.route('/user/<id>')
+def user(id):
+    user = sp.user(id)
+    playlists = sp.user_playlists(id)
+    return render_template('user_playlists.html', user=user, playlists=playlists )
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+  <div>
+    {% for album in new_releases["albums"]["items"] %}
+    <div>
+        <b>
+            {{ album.name }}
+        </b>
+      <div>
+        {% for artist in album.artists %}
+            {{ artist.name }}
+        {% endfor %}
+      </div>
+      <img src="{{ album.images[2].url }}" alt="{{ album.name }}" />
+      <br><br><br>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+{% endblock %}
